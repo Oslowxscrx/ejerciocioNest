@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, Column, BeforeInsert, BeforeUpdate } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, Column, BeforeInsert, BeforeUpdate, OneToMany } from "typeorm";
+import { ProductEntity } from "./product.entity";
 
 @Entity('category',{schema:'ventas'})
 export class CategoryEntity{
@@ -25,6 +26,9 @@ export class CategoryEntity{
     })
     deleteAt: Date;
 
+    @OneToMany(()=>ProductEntity, product=> product.category)
+    product: ProductEntity
+
     @Column ('varchar', {
         name:'title',
         nullable:false,
@@ -38,6 +42,7 @@ export class CategoryEntity{
         comment:'category description'
     })
     description:string;
+    products: any;
 
 @BeforeInsert()
 @BeforeUpdate()

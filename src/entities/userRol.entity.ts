@@ -66,7 +66,7 @@ async setTittle(){
     if(!this.name){
         return
     }
-    this.name = this.name.toLocaleUpperCase().trimStart().trimEnd();
+    this.name = this.name.toLocaleUpperCase().trim();
 }
 
 

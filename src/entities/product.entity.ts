@@ -1,4 +1,5 @@
-import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { CategoryEntity } from "./category.entitys";
 
 @Entity('products',{schema:'ventas'})
 export class ProductEntity{
@@ -24,6 +25,9 @@ export class ProductEntity{
         nullable:true,
     })
     deleteAt: Date;
+
+    @ManyToOne (()=>CategoryEntity, category=> category.products)
+    category: CategoryEntity[]
 
     @Column('varchar',{
         name: 'tittle',
