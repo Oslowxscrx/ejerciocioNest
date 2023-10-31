@@ -48,7 +48,7 @@ export class AlbumEntity{
     })
     lanzamiento: Date
 
-    @Column('number', {
+    @Column('numeric', {
         name: 'pistas',
         nullable: true,
         comment: 'numero de pistas'

@@ -58,7 +58,7 @@ export class ArtistaEntity{
     })
     genero: string
 
-    @Column('number', {
+    @Column('numeric', {
         name: 'edad',
         nullable: true,
         comment: 'edad del artista'

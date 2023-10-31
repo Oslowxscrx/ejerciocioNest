@@ -36,7 +36,7 @@ export class ProductEntity{
     })
     tittle: string
 
-    @Column('number',{
+    @Column('numeric',{
         name: 'prince',
         nullable: false,
         comment: 'product price'

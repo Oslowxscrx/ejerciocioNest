@@ -57,7 +57,7 @@ export class BandaEntity{
     })
     formacion: Date
 
-    @Column('number',{
+    @Column('numeric',{
         name: 'miembros',
         nullable: false,
         comment:'número de miembros'

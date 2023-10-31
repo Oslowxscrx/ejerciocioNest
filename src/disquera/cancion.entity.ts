@@ -3,8 +3,8 @@ import { ArtistaEntity } from "./artista.entity";
 import { BandaEntity } from "./banda.entity";
 
 
-@Entity('conciertos',{schema:'musica'})
-export class ConciertoEntity{
+@Entity('canciones',{schema:'musica'})
+export class CancionEntity{
     @PrimaryGeneratedColumn('uuid')
     id: string;
     @CreateDateColumn({
@@ -28,31 +28,30 @@ export class ConciertoEntity{
     })
     deleteAt: Date;
 
-    @ManyToOne(()=>ArtistaEntity, artista=> artista.concierto)
+    @ManyToOne(()=>ArtistaEntity, artista=>artista.cancion)
     artista: ArtistaEntity
 
-    @ManyToOne(()=>BandaEntity, banda=>banda.concierto)
+    @ManyToOne(()=>BandaEntity, banda=>banda.cancion)
     banda: BandaEntity
 
     @Column('varchar',{
-        name: 'lugar',
-        nullable: false,
-        comment:'dirección de concierto'
+        name: 'cancion',
+        nullable: true,
+        comment: 'nombre de la cancion'
     })
-    lugar: string
+    cancion: string
 
-    @Column('date',{
-        name: 'fecha',
-        nullable: false,
-        comment: 'fecha de conciertos'
+    @Column('varchar',{
+        name: 'duracion',
+        nullable: true,
+        comment: 'duracion de la cancion'
     })
-    fache: Date
+    duracion: string
 
-    @Column('string',{
-        name: 'precio',
-        nullable: false,
-        comment:'precio de las entradas'
+    @Column('varchar',{
+        name: 'idioma',
+        nullable: true,
+        comment: 'nombre de la cancion'
     })
-    precio: string
-
+    idioma: string
 }
